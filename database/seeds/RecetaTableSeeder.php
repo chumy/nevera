@@ -17,9 +17,10 @@ class RecetaTableSeeder extends Seeder
       $categorias = Categoria::all();
       $usuarios = User::all();
 
-      $recetas = factory(Receta::class)->times(100)->create();
+      $recetas = factory(Receta::class)->times(10)->create();
 
       foreach ($recetas as $receta){
+
         $categoria = $categorias->random();
         $categoria->recetas()->save($receta);
 
@@ -27,20 +28,5 @@ class RecetaTableSeeder extends Seeder
         $usuario->recetas()->save($receta);
       }
 
-      /*$recetas = factory(Receta::class)->times(10)->create()->each(function($r){
-        $categoria = $categorias->random();
-        printf ("categoria = $categoria")
-        $r->categoria()->save($categoria);
-      });
-
-      foreach ($recetas as $receta){
-        printf('dentro');
-        $categoria = $categorias->random();
-        //$note->category_id = $category_id
-        //$categoria->recetas()->save($receta);
-        $receta->category_id = $categoria->id;
-        printf($receta->id);
-        $receta->create();
-      }*/
     }
 }

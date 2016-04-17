@@ -18,14 +18,8 @@ class CreateRecetasStructure extends Migration
             $table->timestamps();
         });
 
-        Schema::create('pasos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('descripcion');
-            $table->integer('orden');
-            $table->timestamps();
-        });
-
         Schema::create('recetas', function (Blueprint $table) {
+            //$table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', 255);
             $table->mediumText('descripcion');
@@ -34,14 +28,22 @@ class CreateRecetasStructure extends Migration
             $table->smallInteger('personas');
             $table->mediumText('fuente');
             $table->integer('valoracion');
-            $table->unsignedInteger('categoria_id')->index();
-            $table->unsignedInteger('pasos_id')->index();
-            $table->unsignedInteger('user_id')->index();
+            $table->unsignedInteger('categoria_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
-            //$table->foreign('usuario_id')->references('id')->on('users');
-            //$table->foreign('categoria_id')->references('id')->on('categorias');
-            //$table->foreign('pasos_id')->references('id')->on('pasos')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
 
+
+        });
+
+        Schema::create('pasos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('descripcion');
+            $table->integer('orden');
+            $table->unsignedInteger('receta_id');
+            $table->timestamps();
+            $table->foreign('receta_id')->references('id')->on('recetas');
         });
 
     }
@@ -53,9 +55,9 @@ class CreateRecetasStructure extends Migration
      */
     public function down()
     {
+        Schema::drop('pasos');
         Schema::drop('recetas');
         Schema::drop('categorias');
-        Schema::drop('pasos');
 
     }
 }

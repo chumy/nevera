@@ -30,5 +30,16 @@ $factory->define(App\Receta::class, function (Faker\Generator $faker) {
         'personas' => $faker->randomDigitNotNull,
         'fuente' => $faker->url,
         'valoracion'=> $faker-> numberBetween(0,5),
+        'categoria_id'=>1,
+        'user_id'=>1,
+    ];
+});
+
+$factory->define(App\Paso::class, function (Faker\Generator $faker) {
+
+    return [
+        'descripcion' =>$faker->paragraph,
+        'orden'=>1,
+        'receta_id'=>1,
     ];
 });
