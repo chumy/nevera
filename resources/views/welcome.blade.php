@@ -36,6 +36,9 @@
         </style>
     </head>
     <body>
+
+            <a href="{{ url('recetas') }}">Listado Recetas</a>
+
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>

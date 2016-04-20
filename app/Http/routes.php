@@ -21,5 +21,4 @@ Route::get('/recetas', function () {
     
     $recetas = Receta::all();
 	return view('recetas', compact('recetas'));
-//    dd('recetas');
 });

@@ -55,6 +55,7 @@ class CreateRecetasStructure extends Migration
      */
     public function down()
     {
+        
         Schema::drop('pasos');
         Schema::drop('recetas');
         Schema::drop('categorias');

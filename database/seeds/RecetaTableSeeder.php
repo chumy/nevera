@@ -14,19 +14,15 @@ class RecetaTableSeeder extends Seeder
      */
     public function run()
     {
-      $categorias = Categoria::all();
-      $usuarios = User::all();
 
-      $recetas = factory(Receta::class)->times(10)->create();
+      $recetas = factory(Receta::class)->times(10)->make();
 
-      foreach ($recetas as $receta){
-
-        $categoria = $categorias->random();
-        $categoria->recetas()->save($receta);
-
-        $usuario = $usuarios->random();
-        $usuario->recetas()->save($receta);
-      }
+        $i = 1;
+        foreach ($recetas as $receta){
+            $receta->nombre = $receta->nombre ." ".$i;
+            $i++;
+            $receta->save();
+        }
 
     }
 }

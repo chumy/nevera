@@ -20,19 +20,25 @@ class PasoTableSeeder extends Seeder
         $num_pasos = rand( 1, 8);
         $pasos = factory(Paso::class)->times($num_pasos)->make();
         $old_id = 0;
-        foreach ($pasos as $paso)
-        {
-          $current_id = $receta->id;
-          if ($current_id <> $old_id)
-          {
-            $orden = 1;
-            $old_id = $receta->id;
-          } else {$orden++;}
 
-          $receta->pasos()->save($paso);
-          $paso->setOrden($orden);
-          $paso->save();
-          
+        if ($num_pasos > 1 )
+        {
+          foreach ($pasos as $paso)
+          {
+            $current_id = $receta->id;
+            if ($current_id <> $old_id)
+            {
+              $orden = 1;
+              $old_id = $receta->id;
+            } else {$orden++;}
+
+            $paso->setOrden($orden);
+
+            $receta->pasos()->save($paso);
+          }// endforeach
+        }else{ //Caso para un unico paso
+          $pasos->setOrden(1);
+          $receta->pasos()->save($pasos);
         }
       }
     }

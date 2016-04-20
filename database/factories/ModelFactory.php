@@ -1,4 +1,5 @@
 <?php
+use App\Categoria;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +24,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Receta::class, function (Faker\Generator $faker) {
 
     return [
-        'nombre' => $faker->name,
+        'nombre' => 'Receta',
         'descripcion' =>$faker->paragraph,
         'duracion' => $faker->numberBetween(1,180),
         'dificultad' => $faker->numberBetween(0,5),
         'personas' => $faker->randomDigitNotNull,
         'fuente' => $faker->url,
         'valoracion'=> $faker-> numberBetween(0,5),
-        'categoria_id'=>1,
-        'user_id'=>1,
+        'categoria_id'=> App\Categoria::all()->random()->id,
+        'user_id'=> App\User::all()->random()->id,
     ];
 });
 
