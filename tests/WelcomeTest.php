@@ -20,7 +20,8 @@ class WelcomeTest extends TestCase
     {
         $this->visit('/')
         ->see('Nada en la nevera')
-        ->seeInElement('.btn', 'Buscar');
+        ->seeInField('buscar','Buscar');
+
     }
     public function test_comentario()
     {

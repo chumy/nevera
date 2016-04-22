@@ -13,6 +13,7 @@ class PasoTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::table('pasos')->truncate();
       $recetas = Receta::all();
 
       foreach ($recetas as $receta)

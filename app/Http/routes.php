@@ -17,9 +17,7 @@ Route::get('/', function () {
 
 Route::get('/recetas', 'RecetasController@listado');
 
-Route::post('/resultados', function () {
-    return view('resultados');
-});
+Route::post('/resultados', 'ResultadosController@getResultados');
 
 Route::auth();
 

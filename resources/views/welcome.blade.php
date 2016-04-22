@@ -8,9 +8,11 @@
                 <div class="panel-heading">¿Qué cocino hoy?</div>
 
                 <div class="panel-body">
-                    <input type="text" name="buscador" id="buscador"/>
-                    <button type="button" class="btn btn-primary">Buscar</button>
-
+                  <form action="{{ url('resultados') }}" method="POST">
+                    {!! csrf_field() !!}
+                    <input type="text" name="buscador">
+                    <input type="submit" class="btn btn-primary" id="buscar" value="Buscar">
+                  </form>
                 </div>
             </div>
         </div>
