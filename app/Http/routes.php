@@ -11,14 +11,16 @@
 |
 */
 
-use App\Receta;
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/recetas', function () {
-    
-    $recetas = Receta::all();
-	return view('recetas', compact('recetas'));
+Route::get('/recetas', 'RecetasController@listado');
+
+Route::post('/resultados', function () {
+    return view('resultados');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

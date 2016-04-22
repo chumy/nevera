@@ -4,4 +4,6 @@
 Homestead.yaml
 Homestead.json
 .env
-
+/.idea/*.iws
+/.idea/workspace.xml
+/.idea/tasks.xml

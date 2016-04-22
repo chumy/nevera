@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Nevera;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,7 +18,7 @@ class Receta extends Model
       return $this->hasMany(Paso::class);
     }
 
-    public function user()
+    public function usuario()
     {
           return $this->belongsTo(User::class);
     }

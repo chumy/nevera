@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Receta;
-use App\Categoria;
-use App\User;
+use Nevera\Receta;
+use Nevera\Categoria;
+use Nevera\User;
 
 class RecetaTableSeeder extends Seeder
 {
@@ -14,15 +14,13 @@ class RecetaTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::table('recetas')->truncate();
 
-      $recetas = factory(Receta::class)->times(10)->make();
-
-        $i = 1;
-        foreach ($recetas as $receta){
-            $receta->nombre = $receta->nombre ." ".$i;
-            $i++;
-            $receta->save();
-        }
-
+      for ($i=1; $i<11; $i++)
+      {
+        factory(Receta::class)->create([
+          'nombre' => "Receta $i",
+          ]);
+      }
     }
 }

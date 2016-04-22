@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Paso;
-use App\Receta;
+use Nevera\Paso;
+use Nevera\Receta;
 
 class PasoTableSeeder extends Seeder
 {

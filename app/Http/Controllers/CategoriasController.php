@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Nevera\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use Nevera\Http\Requests;
 
 class CategoriasController extends Controller
 {

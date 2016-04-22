@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Categoria;
-use App\Receta;
+use Nevera\Categoria;
+use Nevera\Receta;
 
 class CategoriaTableSeeder extends Seeder
 {
@@ -13,6 +13,8 @@ class CategoriaTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::table('categorias')->truncate();
+
       Categoria::create(['nombre' => 'Aperitivos y Entremeses']);
       Categoria::create(['nombre' => 'Arroces']);
       Categoria::create(['nombre' => 'Aves']);

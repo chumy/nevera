@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use App\Receta;
+use Nevera\Receta;
 
 class RecetasTest extends TestCase
 {
@@ -17,7 +17,7 @@ class RecetasTest extends TestCase
     	Receta::create(['nombre' => 'Receta 2', 'categoria_id'=> 1, 'user_id' => 1]);
 
     	//When
-        $this->visit('recetas')
+        $this->visit('/recetas')
         //Then
         	->see('Receta 1')
         	->see('Receta 2');

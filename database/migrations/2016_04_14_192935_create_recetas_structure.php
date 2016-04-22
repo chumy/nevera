@@ -28,22 +28,22 @@ class CreateRecetasStructure extends Migration
             $table->smallInteger('personas');
             $table->mediumText('fuente');
             $table->integer('valoracion');
-            $table->unsignedInteger('categoria_id');
-            $table->unsignedInteger('user_id');
+            //$table->unsignedInteger('categoria_id');
+            //$table->unsignedInteger('user_id');
+            $table->unsignedInteger('categoria_id')->index();
+            $table->unsignedInteger('user_id')->index();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('categoria_id')->references('id')->on('categorias');
-
-
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
         });
 
         Schema::create('pasos', function (Blueprint $table) {
             $table->increments('id');
             $table->text('descripcion');
             $table->integer('orden');
-            $table->unsignedInteger('receta_id');
+            $table->unsignedInteger('receta_id')->index();
             $table->timestamps();
-            $table->foreign('receta_id')->references('id')->on('recetas');
+            //$table->foreign('receta_id')->references('id')->on('recetas');
         });
 
     }
@@ -55,10 +55,8 @@ class CreateRecetasStructure extends Migration
      */
     public function down()
     {
-        
         Schema::drop('pasos');
         Schema::drop('recetas');
         Schema::drop('categorias');
-
     }
 }

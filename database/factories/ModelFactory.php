@@ -1,5 +1,5 @@
 <?php
-use App\Categoria;
+use Nevera\Categoria;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,16 +12,17 @@ use App\Categoria;
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Nevera\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
+        'role' => 'user',
         'remember_token' => str_random(10),
     ];
 });
 
-$factory->define(App\Receta::class, function (Faker\Generator $faker) {
+$factory->define(Nevera\Receta::class, function (Faker\Generator $faker) {
 
     return [
         'nombre' => 'Receta',
@@ -31,12 +32,12 @@ $factory->define(App\Receta::class, function (Faker\Generator $faker) {
         'personas' => $faker->randomDigitNotNull,
         'fuente' => $faker->url,
         'valoracion'=> $faker-> numberBetween(0,5),
-        'categoria_id'=> App\Categoria::all()->random()->id,
-        'user_id'=> App\User::all()->random()->id,
+        'categoria_id'=> Nevera\Categoria::all()->random()->id,
+        'user_id'=> Nevera\User::all()->random()->id,
     ];
 });
 
-$factory->define(App\Paso::class, function (Faker\Generator $faker) {
+$factory->define(Nevera\Paso::class, function (Faker\Generator $faker) {
 
     return [
         'descripcion' =>$faker->paragraph,

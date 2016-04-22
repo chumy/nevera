@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Nevera\Providers\AppServiceProvider::class,
+        Nevera\Providers\AuthServiceProvider::class,
+        Nevera\Providers\EventServiceProvider::class,
+        Nevera\Providers\RouteServiceProvider::class,
 
     ],
 

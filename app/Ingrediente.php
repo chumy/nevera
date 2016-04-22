@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Nevera;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Receta;
+use Nevera\Receta;
 
 class Ingrediente extends Model
 {

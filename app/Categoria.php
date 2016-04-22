@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Nevera;
 
 use Illuminate\Database\Eloquent\Model;
 

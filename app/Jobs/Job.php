@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace Nevera\Jobs;
 
 use Illuminate\Bus\Queueable;
 
