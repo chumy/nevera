@@ -43,6 +43,16 @@ class ResultadosTest extends TestCase
             ->dontSee('Receta 2')
             ->seeInElement('p','No hay recetas disponibles');
     }
+    public function test_recetas_resultados()
+    {
+        //When
+        $this->visit('/')
+            //Then
+            ->type('Receta','buscador')
+            ->press('Buscar')
+            ->see('Receta 1')
+            ->dontSeeInElement('p','No hay recetas disponibles');
+    }
 
     public function test_ingredientes_no_result()
     {
@@ -55,4 +65,38 @@ class ResultadosTest extends TestCase
             ->dontSee('Ingrediente 2')
             ->seeInElement('p','No hay ingredientes disponibles');
     }
+
+    public function test_ingrediente()
+    {
+        //When
+        $this->visit('/')
+            //Then
+            ->type('Ingrediente 1','buscador')
+            ->press('Buscar')
+            ->see('Ingrediente 1')
+            ->dontSee('Ingrediente 2');
+    }
+
+    public function test_ingredientes()
+    {
+        //When
+        $this->visit('/')
+            //Then
+            ->type('Ingrediente ','buscador')
+            ->press('Buscar')
+            ->see('Ingrediente 1')
+            ->see('Ingrediente 2');
+    }
+
+    public function test_ingredientes_resultados()
+    {
+        //When
+        $this->visit('/')
+            //Then
+            ->type('Ingrediente 1','buscador')
+            ->press('Buscar')
+            ->see('Ingrediente 1')
+            ->dontSeeInElement('p','No hay ingredientes disponibles');
+    }
+
 }

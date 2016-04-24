@@ -5,6 +5,7 @@ namespace Nevera\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Nevera\Http\Requests;
+use Nevera\Ingrediente;
 use Nevera\Receta;
 
 class ResultadosController extends Controller
@@ -16,7 +17,7 @@ class ResultadosController extends Controller
 
       //$recetas = Receta::where('nombre', 'like',$data['buscador'])->get();
         $recetas = Receta::where('nombre', 'like', "%".$data['buscador']."%")->get();
-        $ingredientes = null;
+        $ingredientes = Ingrediente::where('nombre', 'like', "%".$data['buscador']."%")->get();
 
       return view('resultados', compact('recetas','ingredientes'));
     }
