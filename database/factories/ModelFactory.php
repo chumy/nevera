@@ -1,5 +1,5 @@
 <?php
-use Nevera\Categoria;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ $factory->define(Nevera\User::class, function (Faker\Generator $faker) {
 $factory->define(Nevera\Receta::class, function (Faker\Generator $faker) {
 
     return [
-        'nombre' => 'Receta',
+        'nombre' => $faker->name,
         'descripcion' =>$faker->paragraph,
         'duracion' => $faker->numberBetween(1,180),
         'dificultad' => $faker->numberBetween(0,5),
@@ -43,5 +43,22 @@ $factory->define(Nevera\Paso::class, function (Faker\Generator $faker) {
         'descripcion' =>$faker->paragraph,
         'orden'=>1,
         'receta_id'=>1,
+    ];
+});
+
+$factory->define(Nevera\Ingrediente::class, function (Faker\Generator $faker) {
+
+    return [
+        'nombre' =>$faker->name,
+    ];
+});
+
+$factory->define(Nevera\RecetaIngrediente::class, function (Faker\Generator $faker) {
+
+    return [
+        'cantidad' => $faker->numberBetween(1,180),
+        'medida' => $faker->name,
+        'receta_id'=> Nevera\Receta::all()->random()->id,
+        'ingrediente_id'=> Nevera\Ingrediente::all()->random()->id,
     ];
 });

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Nevera\Categoria;
-use Nevera\Receta;
+
 
 class CategoriaTableSeeder extends Seeder
 {

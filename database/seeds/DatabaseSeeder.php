@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+
+
 //use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriaTableSeeder::class);
         $this->call(RecetaTableSeeder::class);
         $this->call(PasoTableSeeder::class);
+        $this->call(IngredientesSeeder::class);
         //Model::reguard();
     }
 }

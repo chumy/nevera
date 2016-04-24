@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Receta extends Model
 {
-    protected $fillable = ['nombre','categoria_id','user_id'];
+    protected $fillable = ['nombre'];
 
     public function categoria()
     {
@@ -23,4 +23,8 @@ class Receta extends Model
           return $this->belongsTo(User::class);
     }
 
+    public function ingredientes()
+    {
+        return $this->hasMany(RecetaIngrediente::class);
+    }
 }
