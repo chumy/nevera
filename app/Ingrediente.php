@@ -3,7 +3,7 @@
 namespace Nevera;
 
 use Illuminate\Database\Eloquent\Model;
-use Nevera\Receta;
+
 
 class Ingrediente extends Model
 {
@@ -11,6 +11,7 @@ class Ingrediente extends Model
 
     public function recetas()
     {
-        return $this->belongsToMany(RecetaIngrediente::class);
+        //return $this->belongsToMany(RecetaIngrediente::class);
+        return $this->belongsToMany(Receta::class,'receta_ingredientes');
     }
 }

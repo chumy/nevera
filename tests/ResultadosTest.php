@@ -41,7 +41,8 @@ class ResultadosTest extends TestCase
             ->press('Buscar')
             ->dontSee('Receta 1')
             ->dontSee('Receta 2')
-            ->seeInElement('p','No hay recetas disponibles');
+            ->seeInElement('p','No hay recetas disponibles')
+            ->seeInField('buscar','Buscar');
     }
     public function test_recetas_resultados()
     {
@@ -51,7 +52,8 @@ class ResultadosTest extends TestCase
             ->type('Receta','buscador')
             ->press('Buscar')
             ->see('Receta 1')
-            ->dontSeeInElement('p','No hay recetas disponibles');
+            ->dontSeeInElement('p','No hay recetas disponibles')
+            ->seeInField('buscar','Buscar');
     }
 
     public function test_ingredientes_no_result()
@@ -63,7 +65,8 @@ class ResultadosTest extends TestCase
             ->press('Buscar')
             ->dontSee('Ingrediente 1')
             ->dontSee('Ingrediente 2')
-            ->seeInElement('p','No hay ingredientes disponibles');
+            ->seeInElement('p','No hay ingredientes disponibles')
+            ->seeInField('buscar','Buscar');
     }
 
     public function test_ingrediente()

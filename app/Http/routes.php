@@ -22,3 +22,4 @@ Route::post('/resultados', 'ResultadosController@getResultados');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+

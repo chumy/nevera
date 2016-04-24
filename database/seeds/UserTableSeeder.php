@@ -18,14 +18,14 @@ class UserTableSeeder extends Seeder
           'name' => 'Admin',
           'role' => 'admin',
           'email' => 'admin@chumy.net',
-          'password' => 'admin'
+          'password' => bcrypt('admin'),
         ]);
 
         factory(User::class)->create([
           'name' => 'Chumy',
           'role' => 'user',
           'email' => 'chumy@chumy.net',
-          'password' => 'chumy'
+          'password' => bcrypt('chumy'),
         ]);
         factory(User::class)->times(10)->create();
 
