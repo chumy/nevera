@@ -8,6 +8,9 @@ use Nevera\Receta;
 
 class ResultadosTest extends TestCase
 {
+    // ------------------------------------
+    //      BLOQUE RECETAS
+    // ------------------------------------
 
     public function test_receta()
     {
@@ -18,7 +21,7 @@ class ResultadosTest extends TestCase
         $this->visit('/')
         //Then
         ->type('Receta 1','buscador')
-        ->press('Buscar')
+        ->press('buscar')
         ->see('Receta 1')
         ->dontSee('Receta 2');
     }
@@ -28,7 +31,7 @@ class ResultadosTest extends TestCase
         $this->visit('/')
             //Then
             ->type('Receta','buscador')
-            ->press('Buscar')
+            ->press('buscar')
             ->see('Receta 1')
             ->see('Receta 2');
     }
@@ -38,10 +41,10 @@ class ResultadosTest extends TestCase
         $this->visit('/')
             //Then
             ->type('Reca','buscador')
-            ->press('Buscar')
+            ->press('buscar')
             ->dontSee('Receta 1')
             ->dontSee('Receta 2')
-            ->seeInElement('p','No hay recetas disponibles')
+            ->see('No hay recetas disponibles')
             ->seeInField('buscar','Buscar');
     }
     public function test_recetas_resultados()
@@ -50,11 +53,15 @@ class ResultadosTest extends TestCase
         $this->visit('/')
             //Then
             ->type('Receta','buscador')
-            ->press('Buscar')
+            ->press('buscar')
             ->see('Receta 1')
-            ->dontSeeInElement('p','No hay recetas disponibles')
+            ->dontSee('No hay recetas disponibles')
             ->seeInField('buscar','Buscar');
     }
+
+    // ------------------------------------
+    //      BLOQUE INGREDIENTES
+    // ------------------------------------
 
     public function test_ingredientes_no_result()
     {
@@ -62,10 +69,10 @@ class ResultadosTest extends TestCase
         $this->visit('/')
             //Then
             ->type('Sal','buscador')
-            ->press('Buscar')
+            ->press('buscar')
             ->dontSee('Ingrediente 1')
             ->dontSee('Ingrediente 2')
-            ->seeInElement('p','No hay ingredientes disponibles')
+            ->see('No hay ingredientes disponibles')
             ->seeInField('buscar','Buscar');
     }
 
@@ -75,7 +82,7 @@ class ResultadosTest extends TestCase
         $this->visit('/')
             //Then
             ->type('Ingrediente 1','buscador')
-            ->press('Buscar')
+            ->press('buscar')
             ->see('Ingrediente 1')
             ->dontSee('Ingrediente 2');
     }
@@ -85,8 +92,8 @@ class ResultadosTest extends TestCase
         //When
         $this->visit('/')
             //Then
-            ->type('Ingrediente ','buscador')
-            ->press('Buscar')
+            ->type('Ingrediente','buscador')
+            ->press('buscar')
             ->see('Ingrediente 1')
             ->see('Ingrediente 2');
     }
@@ -97,9 +104,37 @@ class ResultadosTest extends TestCase
         $this->visit('/')
             //Then
             ->type('Ingrediente 1','buscador')
+            ->press('buscar')
+            ->see('Ingrediente 1')
+            ->dontSee('No hay ingredientes disponibles');
+    }
+
+    public function test_ingredientes_enlaces()
+    {
+        $this->visit('/')
+            ->type('Ingrediente','buscador')
+            ->press('buscar')
+            ->see('Ingrediente 1')
+            ->seeElement('a', [ 'name' => 'Ingrediente 1' ])
+            ->see('Ingrediente 2')
+            ->seeElement('a', [ 'name' => 'Ingrediente 2' ]);
+    }
+
+    // ------------------------------------
+    //      BLOQUE RELACIONES
+    // ------------------------------------
+
+    /*public function test_resultado_all_results_recetas()
+    {
+        //When
+        $this->visit('/')
+            //Then
+            ->type('Ingrediente 1','buscador')
             ->press('Buscar')
             ->see('Ingrediente 1')
-            ->dontSeeInElement('p','No hay ingredientes disponibles');
-    }
+            ->see('Receta 1')
+            ->dontSee('No hay recetas disponibles')
+            ->dontSee('No hay ingredientes disponibles');
+    }*/
 
 }

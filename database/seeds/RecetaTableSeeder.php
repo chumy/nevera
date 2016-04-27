@@ -16,6 +16,10 @@ class RecetaTableSeeder extends Seeder
     {
       DB::table('recetas')->truncate();
 
+        /*factory(Receta::class)->create([
+            'nombre' => "Pan Campestre",
+        ]);*/
+
       for ($i=1; $i<11; $i++)
       {
         factory(Receta::class)->create([

@@ -23,3 +23,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('/AnadeIngrediente', 'NeveraController@anadirIngrediente');
+
+Route::post('/VaciarNevera', 'NeveraController@vaciarNevera');
+Route::post('/actualizarNevera', 'NeveraController@actualizarNevera');
+
+//Route::post('/AnadeIngrediente', 'NeveraController@actualizarNevera');
