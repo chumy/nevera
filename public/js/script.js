@@ -1,5 +1,5 @@
 function anadeIngrediente (id, ingrediente){
-    var route = 'http://localhost:8000/AnadeIngrediente'
+    var route = '/AnadeIngrediente'
     var token = $("#token").val();
 
     $.ajax({
@@ -17,18 +17,31 @@ function anadeIngrediente (id, ingrediente){
 
 function actualizaNevera(listadoJson){
     var listado = JSON.parse(listadoJson);
+    listado = jQuery.unique(listado);
 
     var lista_ingredientes = '';
 
-    for(var i = 0; i < listado.length;i++){
-        lista_ingredientes += '<li>'+listado[i].nombre+'</li>';
+    if (listado != null && listado.length > 0 )
+    {
+
+        for(var i = 0; i < listado.length;i++){
+            lista_ingredientes += '<li>'+listado[i].nombre+'</li>';
+        }
+
+        $('#vaciar_nevera').fadeIn();
+
+    }else{
+        $('#vaciar_nevera').fadeOut();
+        lista_ingredientes = 'La nevera está vacía';
     }
+
     $('#nevera_listado').html(lista_ingredientes);
+
 
 }
 
 function mostrarNevera(){
-    var route = 'http://localhost:8000/actualizarNevera';
+    var route = '/actualizarNevera';
     var token = $('[name="_token"]').val();
 
     $.ajax({
@@ -45,7 +58,7 @@ function mostrarNevera(){
 
 
 function vaciarNevera () {
-    var route = 'http://localhost:8000/VaciarNevera'
+    var route = '/VaciarNevera'
     var token = $('[name="_token"]').val();
 
     $.ajax({

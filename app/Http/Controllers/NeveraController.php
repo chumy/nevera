@@ -5,6 +5,7 @@ namespace Nevera\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Nevera\Http\Requests;
+use Nevera\Ingrediente;
 
 class NeveraController extends Controller
 {
@@ -19,11 +20,11 @@ class NeveraController extends Controller
           if($request->ajax()){
               if ($request->session()->has('nevera')) {
                   $nevera = $request->session()->pull('nevera');
-                  $nevera[] = $request->all();
+                  $nevera[] = new Ingrediente($request->all());
                   session(['nevera' => $nevera]);
               }
               else{
-                  $nevera[] = $request->all();
+                  $nevera[] = new Ingrediente($request->all());
                   session(['nevera' => $nevera]);
               }
 
