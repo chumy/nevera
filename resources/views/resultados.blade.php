@@ -21,7 +21,7 @@
         @if (count($ingredientes) > 0 )
             <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
         <div class="panel-heading">
-            Ingredientes
+            @lang('nevera.buscador_ingredientes')
         </div>
         <div class="panel-body">
             <ul>
@@ -31,14 +31,14 @@
             </ul>
         </div>
      @else
-                <div class="panel-heading">No hay ingredientes disponibles.</div>
+                <div class="panel-heading">@lang('nevera.resultados_no_ingredientes')</div>
     @endif
     </div>
 
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-info">
             @if (count($recetas) > 0)
-                <div class="panel-heading">Recetas</div>
+                <div class="panel-heading">@lang('nevera.buscador_recetas')</div>
                 <ul>
                     @foreach ($recetas as $receta)
                         <li>{{ $receta->nombre }}</li>
@@ -46,7 +46,7 @@
 
                 </ul>
                 @else
-                <div class="panel-heading">No hay recetas disponibles</div>
+                <div class="panel-heading">@lang('nevera.resultados_no_recetas')</div>
                 @endif
         </div>
     </div>
