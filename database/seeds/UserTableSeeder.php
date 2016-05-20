@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
           'role' => 'admin',
           'email' => 'admin@chumy.net',
           'password' => bcrypt('admin'),
+          'active' => true,
         ]);
 
         factory(User::class)->create([
@@ -28,6 +29,7 @@ class UserTableSeeder extends Seeder
           'role' => 'user',
           'email' => 'chumy@chumy.net',
           'password' => bcrypt('chumy'),
+          'active' => false,
         ]);
         factory(User::class)->times(10)->create();
 

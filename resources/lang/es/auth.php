@@ -25,8 +25,9 @@ return [
     'register_title' => 'Registro',
     'register_button' => 'Registrarse',
     'name' => 'Nombre',
-    'click_reset_password'  =>    'Pulse en el enlace para reiniciar su contraseña:',
-    'send_password_link' => 'Enviar el enlace para reiniciar su contraseña',
-    'reset_password_title' => 'Reiniciar contraseña',
-    'reset_password_button' => 'Reiniciar contraseña',
+    'username' => 'Nombre de usuario',
+    'click_reset_password'  =>    'Pulse en el enlace para restablecer su contraseña:',
+    'send_password_link' => 'Enviar el enlace para restablecer su contraseña',
+    'reset_password_title' => 'Restablecer contraseña',
+    'reset_password_button' => 'Restablecer contraseña',
 ];

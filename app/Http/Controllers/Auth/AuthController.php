@@ -7,6 +7,7 @@ use Validator;
 use Nevera\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -70,5 +71,21 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-        
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function getCredentials(Request $request)
+    {
+        //return $request->only($this->loginUsername(), 'password');
+        return [
+            'username' => $request->get('username'),
+            'password' => $request->get('password'),
+            'active' => true,
+        ];
+    }
+
 }

@@ -25,6 +25,7 @@ return [
     'register_title' => 'Register',
     'register_button' => 'Register',
     'name' => 'Name',
+    'username' => 'Username',
     'click_reset_password'  =>    'Click here to reset your password:',
     'send_password_link' => 'Send Password Reset Link',
     'reset_password_title' => 'Reset Password',
