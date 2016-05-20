@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'info@nevera.es', 'name' => 'Nada en la nevera'],
 
     /*
     |--------------------------------------------------------------------------
@@ -108,5 +108,7 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+    
+    'pretend' => false,
 
 ];

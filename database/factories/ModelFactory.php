@@ -15,7 +15,8 @@
 $factory->define(Nevera\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->safeEmail,
+        'username' => $faker->unique()->userName,
+        'email' => $faker->unique()->safeEmail,
         'password' => bcrypt(str_random(10)),
         'role' => 'user',
         'remember_token' => str_random(10),

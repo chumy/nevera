@@ -15,14 +15,16 @@ class UserTableSeeder extends Seeder
         //DB::table('users')->truncate();
 
         factory(User::class)->create([
-          'name' => 'Admin',
+          'name' => 'Administrador',
+          'username' => 'Admin',
           'role' => 'admin',
           'email' => 'admin@chumy.net',
           'password' => bcrypt('admin'),
         ]);
 
         factory(User::class)->create([
-          'name' => 'Chumy',
+          'name' => 'David Chamorro',
+          'username' => 'chumy',
           'role' => 'user',
           'email' => 'chumy@chumy.net',
           'password' => bcrypt('chumy'),
