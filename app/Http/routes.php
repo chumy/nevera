@@ -15,17 +15,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/recetas', 'RecetasController@listado');
+Route::get('/recetas', [
+     'uses' => 'RecetasController@listado',
+     'as' => 'listadoRecetas'
+]);
 
-Route::post('/resultados', 'ResultadosController@getResultados');
+Route::post('/resultados', [
+    'uses' => 'ResultadosController@getResultados',
+    'as' => 'resultados'
+]);
+
+
+//Route::get('/recetas', 'RecetasController@listado');
+
+//Route::post('/resultados', 'ResultadosController@getResultados');
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', [
+    'uses' => 'HomeController@index',
+    'as' =>  'home'
+]);
 
 Route::post('/AnadeIngrediente', 'NeveraController@anadirIngrediente');
-
 Route::post('/VaciarNevera', 'NeveraController@vaciarNevera');
 Route::post('/actualizarNevera', 'NeveraController@actualizarNevera');
-
-//Route::post('/AnadeIngrediente', 'NeveraController@actualizarNevera');
