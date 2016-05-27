@@ -14,7 +14,7 @@ class RecetaTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('recetas')->truncate();
+      //DB::table('recetas')->truncate();
 
         /*factory(Receta::class)->create([
             'nombre' => "Pan Campestre",

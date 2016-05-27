@@ -16,8 +16,8 @@ class IngredientesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('receta_ingredientes')->truncate();
-        DB::table('ingredientes')->truncate();
+        //DB::table('receta_ingredientes')->truncate();
+        //DB::table('ingredientes')->truncate();
         
         // Test ID 1
         /*factory(Ingrediente::class)->create([

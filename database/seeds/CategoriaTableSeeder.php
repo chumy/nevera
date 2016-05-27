@@ -13,7 +13,7 @@ class CategoriaTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('categorias')->truncate();
+      //DB::table('categorias')->truncate();
 
       Categoria::create(['nombre' => 'Aperitivos y Entremeses']);
       Categoria::create(['nombre' => 'Arroces']);

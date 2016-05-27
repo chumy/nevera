@@ -25,6 +25,7 @@ class Ingredientes extends Migration
             $table->unsignedInteger('ingrediente_id')->index();
             $table->unsignedInteger('receta_id')->index();
             $table->timestamps();
+            
         });
 
     }
