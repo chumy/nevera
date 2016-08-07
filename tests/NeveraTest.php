@@ -33,7 +33,7 @@ class NeveraTest extends TestCase
             ->type('Ingrediente 1','buscador')
             ->press('buscar')
             ->see('Ingrediente 1')
-            ->seeElement('a', ['id'=> 'add_ingrediente_1' ])
+            ->seeElement('a', ['id'=> 'add_ingrediente_ingrediente-1' ])
             //->press('#add_ingrediente_1')
 
             //->click('#add_ingrediente_1')
@@ -42,7 +42,7 @@ class NeveraTest extends TestCase
         ;
     }
 
-    public function test_nevera_ingredientes_add_ajax()
+    public function nevera_ingredientes_add_ajax()
     {
 
         $data = array(
@@ -59,6 +59,40 @@ class NeveraTest extends TestCase
             ->see('Ingrediente 2');
 
     }
+    public function test_nevera_add_ingredientes()
+    {
 
+        $ingrediente = 'ingrediente-2';
+        $this->visit("/nevera/add/$ingrediente")
+            ->see('Ingrediente 2')
+            ->onPage('/');
+
+    }
+
+       public function test_nevera_del_ingredientes()
+    {
+
+        $ingrediente = 'ingrediente-2';
+        $this->visit("/nevera/del/$ingrediente")
+            ->dontSee('Ingrediente 2')
+            ->onPage('/');
+
+    }
+
+    public function test_nevera_empty()
+    {
+
+        $ingrediente1 = 'ingrediente-1';
+        $ingrediente2 = 'ingrediente-2';
+        $this->visit("/nevera/add/$ingrediente1")
+            ->see('Ingrediente 1')
+            ->visit("/nevera/add/$ingrediente2")
+            ->see('Ingrediente 2')
+            ->visit("/nevera/empty")
+            ->dontSee('Ingrediente 1')
+            ->dontSee('Ingrediente 2')
+            ->onPage('/');
+
+    }
 
 }

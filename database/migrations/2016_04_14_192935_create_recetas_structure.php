@@ -15,6 +15,7 @@ class CreateRecetasStructure extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',100);
+            $table->string('slug',100);
             $table->timestamps();
         });
 
@@ -22,6 +23,7 @@ class CreateRecetasStructure extends Migration
             //$table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', 255);
+            $table->string('slug', 255);
             $table->mediumText('descripcion');
             $table->smallInteger('duracion');
             $table->smallInteger('dificultad');

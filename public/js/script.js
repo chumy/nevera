@@ -1,4 +1,10 @@
 function anadeIngrediente (id, ingrediente){
+    $("#ingrediente").val(id);
+    $("#listaIngrediente").submit();
+    
+};
+
+function anadeIngrediente_ajax (id, ingrediente){
     var route = '/AnadeIngrediente'
     var token = $("#token").val();
 

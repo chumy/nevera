@@ -18,7 +18,11 @@
 
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-info">
+      
         @if (count($ingredientes) > 0 )
+          <form action="/AnadeIngrediente" method="POST" id="listaIngrediente">
+            {!! csrf_field() !!}
+            <input type="hidden" id="ingrediente" name="ingrediente" value="">
             <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
         <div class="panel-heading">
             @lang('nevera.buscador_ingredientes')
@@ -26,13 +30,17 @@
         <div class="panel-body">
             <ul>
                 @foreach ($ingredientes as $ingrediente)
-                    <li>{{ $ingrediente->nombre }} <a role="button" class="glyphicon glyphicon-plus-sign" href="#" onclick="anadeIngrediente({{ $ingrediente->id }},'{{ $ingrediente->nombre }}' );" id="add_ingrediente_{{ $ingrediente->id }}" name="{{ $ingrediente->nombre }}"></a></li>
+                    <li>{{ $ingrediente->nombre }} 
+                    <a class="glyphicon glyphicon-plus-sign" href="{{ route('nevera-add', $ingrediente->slug) }}" id="add_ingrediente_{{ $ingrediente->slug }}"></a>
+                    <!--a role="button" class="glyphicon glyphicon-plus-sign" href="#" onclick="anadeIngrediente({{ $ingrediente->id }},'{{ $ingrediente->nombre }}' );" id="add_ingrediente_{{ $ingrediente->id }}" name="{{ $ingrediente->nombre }}"></a-->
+                    </li>
                 @endforeach
             </ul>
         </div>
-     @else
-                <div class="panel-heading">@lang('nevera.resultados_no_ingredientes')</div>
-    @endif
+          </form>
+        @else
+            <div class="panel-heading">@lang('nevera.resultados_no_ingredientes')</div>
+        @endif
     </div>
 
     <div class="col-md-10 col-md-offset-1">

@@ -24,6 +24,7 @@ class RecetaTableSeeder extends Seeder
       {
         factory(Receta::class)->create([
           'nombre' => "Receta $i",
+          'slug' => "receta-$i",
           ]);
       }
     }

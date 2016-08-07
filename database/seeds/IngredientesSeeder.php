@@ -29,6 +29,7 @@ class IngredientesSeeder extends Seeder
         {
             factory(Ingrediente::class)->create([
                 'nombre' => "Ingrediente $i",
+                'slug' => "ingrediente-$i",
             ]);
         }
 

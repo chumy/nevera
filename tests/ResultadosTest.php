@@ -12,6 +12,19 @@ class ResultadosTest extends TestCase
     //      BLOQUE RECETAS
     // ------------------------------------
 
+    public function test_type()
+    {
+        //Having
+        //Receta::create(['nombre' => 'Receta 1', 'categoria_id'=> 1, 'user_id' => 1]);
+        //Receta::create(['nombre' => 'Receta 2', 'categoria_id'=> 1, 'user_id' => 1]);
+        //When
+        $this->visit('/')
+        //Then
+        ->type('Receta 1','buscador')
+        ->see('Receta 1')
+        ->dontSee('Receta 2');
+    }
+
     public function test_receta()
     {
     	//Having

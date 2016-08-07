@@ -15,22 +15,22 @@ class CategoriaTableSeeder extends Seeder
     {
       //DB::table('categorias')->truncate();
 
-      Categoria::create(['nombre' => 'Aperitivos y Entremeses']);
-      Categoria::create(['nombre' => 'Arroces']);
-      Categoria::create(['nombre' => 'Aves']);
-      Categoria::create(['nombre' => 'Bebidas']);
-      Categoria::create(['nombre' => 'Carnes']);
-      Categoria::create(['nombre' => 'Ensaladas']);
-      Categoria::create(['nombre' => 'Huevos']);
-      Categoria::create(['nombre' => 'Legumbres']);
-      Categoria::create(['nombre' => 'Pan y Bollería']);
-      Categoria::create(['nombre' => 'Pasta']);
-      Categoria::create(['nombre' => 'Patatas']);
-      Categoria::create(['nombre' => 'Pescados']);
-      Categoria::create(['nombre' => 'Postres']);
-      Categoria::create(['nombre' => 'Salsas']);
-      Categoria::create(['nombre' => 'Sopas']);
-      Categoria::create(['nombre' => 'Tortillas']);
-      Categoria::create(['nombre' => 'Verduras']);
+      Categoria::create(['nombre' => 'Aperitivos y Entremeses'], ['slug'=>'apertivos-entremeses']);
+      Categoria::create(['nombre' => 'Arroces'], ['slug'=>'arroces']);
+      Categoria::create(['nombre' => 'Aves'], ['slug'=>'aves']);
+      Categoria::create(['nombre' => 'Bebidas'], ['slug'=>'bebidas']);
+      Categoria::create(['nombre' => 'Carnes'], ['slug'=>'carnes']);
+      Categoria::create(['nombre' => 'Ensaladas'], ['slug'=>'ensaladas']);
+      Categoria::create(['nombre' => 'Huevos'], ['slug'=>'huevos']);
+      Categoria::create(['nombre' => 'Legumbres',], ['slug'=>'legumbres']);
+      Categoria::create(['nombre' => 'Pan y Bollería'], ['slug'=>'pan-bolleria']);
+      Categoria::create(['nombre' => 'Pasta'], ['slug'=>'pasta']);
+      Categoria::create(['nombre' => 'Patatas'], ['slug'=>'patatas']);
+      Categoria::create(['nombre' => 'Pescados'], ['slug'=>'pescados']);
+      Categoria::create(['nombre' => 'Postres'], ['slug'=>'postres']);
+      Categoria::create(['nombre' => 'Salsas'], ['slug'=>'salsas']);
+      Categoria::create(['nombre' => 'Sopas'], ['slug'=>'sopas']);
+      Categoria::create(['nombre' => 'Tortillas'], ['slug'=>'tortillas']);
+      Categoria::create(['nombre' => 'Verduras'], ['slug'=>'verduras']);
     }
 }
