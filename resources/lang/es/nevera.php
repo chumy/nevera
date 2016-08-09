@@ -18,7 +18,9 @@ return [
     'menu_login' => 'Entrar',
     'menu_logout' => 'Cerrar Sesión',
     'menu_register' => 'Registrarse',
-    
+    'menu_mis_recetas' => 'Mis Recetas',
+    'menu_nueva_receta' => 'Nueva Receta',
+
     //Resultados buscador
     
     'buscador_ingredientes' => 'Ingredientes',

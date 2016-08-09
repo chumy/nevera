@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <form action="{{ url('resultados') }}" method="POST">
                     {!! csrf_field() !!}
-                    <input type="text" name="buscador">
+                    <input type="text" name="buscadora">
                     <input type="submit" class="btn btn-primary" id="buscar" value="Buscar">
                 </form>
             </div>

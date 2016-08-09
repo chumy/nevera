@@ -64,14 +64,6 @@ class NeveraController extends Controller
         return view('welcome');
         return redirect()->route('nevera-show');
     }
-    public function actualizarNevera(Request $request)
-    {
-        if ($request->session()->has('nevera')) {
-            return response()->json([
-                json_encode(session()->get('nevera'))
-            ]);
-        }
-    }
 
     public function empty()
     {

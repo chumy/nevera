@@ -15,6 +15,15 @@ Route::bind('ingrediente',function($slug){
 	return Nevera\Ingrediente::where('slug', $slug)->first();
 });
 
+Route::bind('user',function($id){
+    return Nevera\User::find($id);
+});
+
+Route::bind('receta',function($id){
+    return Nevera\Receta::find($id);
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,6 +38,8 @@ Route::post('/resultados', [
     'as' => 'resultados'
 ]);
 
+
+// NEVERA
 Route::get('nevera/show', [
     'uses' => 'NeveraController@show',
     'as' => 'nevera-show'
@@ -60,10 +71,22 @@ Route::get('/home', [
     'as' =>  'home'
 ]);
 
-// NEVERA
+Route::get('receta/list/{user}', [
+    'uses' => 'RecetasController@list',
+    'as' =>  'lista-recetas'
+]);
+
+Route::get('receta/{receta}', [
+    'uses' => 'RecetasController@show',
+    'as' =>  'receta'
+]);
 
 
+
+
+/*/ Ajax
 
 Route::post('/AnadeIngrediente', 'NeveraController@anadirIngrediente');
 Route::post('/VaciarNevera', 'NeveraController@vaciarNevera');
 Route::post('/actualizarNevera', 'NeveraController@actualizarNevera');
+*/

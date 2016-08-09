@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RecetaTableSeeder::class);
         $this->call(PasoTableSeeder::class);
         $this->call(IngredientesSeeder::class);
+        $this->call(ListadoIngredientesSeeder::class);
         //Model::reguard();
     }
 }
