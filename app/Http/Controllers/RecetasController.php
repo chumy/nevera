@@ -31,7 +31,7 @@ class RecetasController extends Controller
    public function show(Receta $receta)
   {
     $ingredientes = $receta->listadoIngredientes()->get();
-    dd($ingredientes);
+    //dd($ingredientes[0]->getIngrediente());
     return view('recetas/receta', compact('receta','ingredientes'));
   }
 

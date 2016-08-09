@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Ingredientes extends Migration
+class CreacionTablaMedida extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class Ingredientes extends Migration
      */
     public function up()
     {
-        Schema::create('ingredientes', function (Blueprint $table) {
+        Schema::create('medidas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 255);
-            $table->string('slug', 255);
+            $table->string('nombre');
             $table->timestamps();
         });
 
@@ -28,6 +27,6 @@ class Ingredientes extends Migration
      */
     public function down()
     {
-        Schema::drop('ingredientes');
+        Schema::drop('medidas');
     }
 }

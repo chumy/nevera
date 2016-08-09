@@ -55,11 +55,18 @@ $factory->define(Nevera\Ingrediente::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(Nevera\Medida::class, function (Faker\Generator $faker) {
+
+    return [
+        'nombre' => $faker->name,
+    ];
+});
+
 $factory->define(Nevera\ListadoIngredientes::class, function (Faker\Generator $faker) {
 
     return [
         'cantidad' => $faker->numberBetween(1,180),
-        'medida' => $faker->name,
+        'medida_id' => Nevera\Medida::all()->random()->id,
         'receta_id'=> Nevera\Receta::all()->random()->id,
         'ingrediente_id'=> Nevera\Ingrediente::all()->random()->id,
     ];

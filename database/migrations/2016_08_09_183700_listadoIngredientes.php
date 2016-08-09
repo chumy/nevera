@@ -15,7 +15,7 @@ class ListadoIngredientes extends Migration
         Schema::create('listado_ingredientes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidad');
-            $table->string('medida');
+            $table->unsignedInteger('medida_id')->index();
             $table->unsignedInteger('ingrediente_id')->index();
             $table->unsignedInteger('receta_id')->index();
             $table->timestamps();
