@@ -11,7 +11,7 @@
                 <div class="panel-body">
                   <form action="{{ url('resultados') }}" method="POST" role="form">
                     {!! csrf_field() !!}
-                    <input type="text" name="buscador" value="Receta">
+                    <input type="text" name="buscador" value="">
                       <button class="btn btn-default" type="submit" name="buscar" id="buscar">
                           <span class="glyphicon glyphicon-search"></span>
                       </button>

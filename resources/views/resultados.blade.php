@@ -31,7 +31,7 @@
             <ul>
                 @foreach ($ingredientes as $ingrediente)
                     <li>{{ $ingrediente->nombre }} 
-                    <a class="glyphicon glyphicon-plus-sign" href="{{ route('nevera-add', $ingrediente->slug) }}" id="add_ingrediente_{{ $ingrediente->slug }}" name="{{ $ingrediente->nombre}}"></a>
+                    <a class="glyphicon glyphicon-plus-sign" href="{{ route('nevera-add', $ingrediente->slug) }}" id="add_ingrediente_{{ $ingrediente->slug }}" name="add_{{ $ingrediente->slug}}"></a>
                     </li>
                 @endforeach
             </ul>
@@ -40,6 +40,7 @@
         @else
             <div class="panel-heading">@lang('nevera.resultados_no_ingredientes')</div>
         @endif
+        </div>
     </div>
 
     <div class="col-md-10 col-md-offset-1">

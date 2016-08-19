@@ -121,9 +121,9 @@ class ResultadosTest extends TestCase
             ->type('Ingrediente','buscador')
             ->press('buscar')
             ->see('Ingrediente 1')
-            ->seeElement('a', [ 'name' => 'Ingrediente 1' ])
+            ->seeElement('a', [ 'name' => 'add_ingrediente-1' ])
             ->see('Ingrediente 2')
-            ->seeElement('a', [ 'name' => 'Ingrediente 2' ]);
+            ->seeElement('a', [ 'name' => 'add_ingrediente-2' ]);
     }
 
     // ------------------------------------

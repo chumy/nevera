@@ -28,4 +28,9 @@ return [
     'resultados_no_recetas' => 'No hay recetas disponibles.',
     'resultados_no_ingredientes' => 'No hay ingredientes disponibles.',
 
+    //Nevera Cesta
+
+    'nevera_head' => 'Nevera',
+    'nevera_to_empty' => 'Vaciar Nevera',
+    'nevera_empty' => 'No hay ingredientes',
 ];
