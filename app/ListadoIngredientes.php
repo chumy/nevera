@@ -17,4 +17,9 @@ class ListadoIngredientes extends Model
     {
     	return Medida::find($this->medida_id);
     }
+
+    public function getReceta()
+    {
+    	return Receta::find($this->receta_id);
+    }
 }

@@ -33,4 +33,6 @@ return [
     'nevera_head' => 'Nevera',
     'nevera_to_empty' => 'Vaciar Nevera',
     'nevera_empty' => 'No hay ingredientes',
+    'nevera_total' => 'Total Recetas',
+    'nevera_ingredientes' => 'Recetas que tienen el ingrediente ',
 ];

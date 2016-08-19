@@ -16,4 +16,16 @@ class Ingrediente extends Model
         return $this->hasManyThrough(Receta::class, ListadoIngredientes::class, 'ingrediente_id','id');
     }
 
+    /*
+	* Function listadoRecetas
+	*
+	* Funcion que relaciona los ingredientes con las recetas
+	*
+	* @return Array ListadoIngredientes
+	*/
+    public function listadoRecetas()
+    {
+        return $this->hasMany(ListadoIngredientes::class);
+    }
+
 }

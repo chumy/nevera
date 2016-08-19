@@ -60,6 +60,11 @@ Route::get('nevera/empty', [
     'as' => 'nevera-empty'
 ]);
 
+Route::get('nevera/recetas', [
+    'uses' => 'NeveraController@recetas',
+    'as' => 'nevera-recetas'
+]);
+
 //Route::get('/recetas', 'RecetasController@listado');
 
 //Route::post('/resultados', 'ResultadosController@getResultados');
