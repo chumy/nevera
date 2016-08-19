@@ -9,8 +9,8 @@
             <div class="panel-body">
                 <form action="{{ url('resultados') }}" method="POST">
                     {!! csrf_field() !!}
-                    <input type="text" name="buscadora">
-                    <input type="submit" class="btn btn-primary" id="buscar" value="Buscar">
+                    <input type="text" name="buscador">
+                    <input type="submit" class="btn btn-primary" value="Buscar">
                 </form>
             </div>
         </div>
@@ -31,8 +31,7 @@
             <ul>
                 @foreach ($ingredientes as $ingrediente)
                     <li>{{ $ingrediente->nombre }} 
-                    <a class="glyphicon glyphicon-plus-sign" href="{{ route('nevera-add', $ingrediente->slug) }}" id="add_ingrediente_{{ $ingrediente->slug }}"></a>
-                    <!--a role="button" class="glyphicon glyphicon-plus-sign" href="#" onclick="anadeIngrediente({{ $ingrediente->id }},'{{ $ingrediente->nombre }}' );" id="add_ingrediente_{{ $ingrediente->id }}" name="{{ $ingrediente->nombre }}"></a-->
+                    <a class="glyphicon glyphicon-plus-sign" href="{{ route('nevera-add', $ingrediente->slug) }}" id="add_ingrediente_{{ $ingrediente->slug }}" name="{{ $ingrediente->nombre}}"></a>
                     </li>
                 @endforeach
             </ul>

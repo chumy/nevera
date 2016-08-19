@@ -30,10 +30,10 @@ class NeveraTest extends TestCase
     public function test_nevera_ingredientes_add_link()
     {
         $this->visit('/')
-            ->type('Ingrediente 1','buscador')
+            ->type('Ingrediente 19','buscador')
             ->press('buscar')
-            ->see('Ingrediente 1')
-            ->seeElement('a', ['id'=> 'add_ingrediente_ingrediente-1' ])
+            ->see('Ingrediente 19')
+            ->seeElement('a', ['id'=> 'add_ingrediente_ingrediente-19' ])
             //->press('#add_ingrediente_1')
 
             //->click('#add_ingrediente_1')
@@ -65,7 +65,8 @@ class NeveraTest extends TestCase
         $ingrediente = 'ingrediente-2';
         $this->visit("/nevera/add/$ingrediente")
             ->see('Ingrediente 2')
-            ->onPage('/');
+            //->seePageIs('/')
+            ;
 
     }
 
@@ -75,7 +76,8 @@ class NeveraTest extends TestCase
         $ingrediente = 'ingrediente-2';
         $this->visit("/nevera/del/$ingrediente")
             ->dontSee('Ingrediente 2')
-            ->onPage('/');
+            //->seePageIs('/')
+            ;
 
     }
 
@@ -91,7 +93,8 @@ class NeveraTest extends TestCase
             ->visit("/nevera/empty")
             ->dontSee('Ingrediente 1')
             ->dontSee('Ingrediente 2')
-            ->onPage('/');
+            //->seePageIs('/')
+            ;
 
     }
 

@@ -11,12 +11,12 @@ class WelcomeTest extends TestCase
      *
      * @return void
      */
-    public function test_titulo()
+    public function test_welcome_titulo()
     {
         $this->visit('/')
         ->see('Nada en la nevera');
     }
-    public function test_buscador()
+    public function test_welcome_buscador()
     {
         $this->visit('/')
         ->see('Nada en la nevera')
@@ -24,7 +24,7 @@ class WelcomeTest extends TestCase
         //->seeInField('buscar','Buscar');
 
     }
-    public function test_comentario()
+    public function test_welcome_comentario()
     {
         $this->visit('/')
         ->see('¿Qué cocino hoy?');
