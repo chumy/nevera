@@ -125,9 +125,8 @@ class NeveraController extends Controller
     public function recetas()
     {
         
-        $todas_recetas=$this->totalRecetas();
-       
-        dd($todas_recetas);
-        return view('welcome');
+        $recetas=$this->totalRecetas();
+        
+        return view('recetas.listado', compact('recetas'));
     }
 }

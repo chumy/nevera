@@ -12,7 +12,7 @@
                     <a class="glyphicon glyphicon-minus-sign" href="{{ route('nevera-del', $ingrediente->slug) }}" id="del_ingrediente_{{ $ingrediente->slug }}" name="del_{{ $ingrediente->slug}}"></a>
                     {{ $ingrediente->nombre }} 
                     <span class="badge">
-                        <a href="#" 
+                        <a href="{{ route('resultados-ingrediente', $ingrediente->slug ) }}" 
                         alt="@lang('nevera.nevera_ingredientes') {{ $ingrediente->nombre}}" 
                         title="@lang('nevera.nevera_ingredientes') {{ $ingrediente->nombre}}">{{ count($ingrediente->listadoRecetas()->get()) }}</a></span> 
                         

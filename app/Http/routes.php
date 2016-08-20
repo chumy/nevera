@@ -19,8 +19,8 @@ Route::bind('user',function($id){
     return Nevera\User::find($id);
 });
 
-Route::bind('receta',function($id){
-    return Nevera\Receta::find($id);
+Route::bind('receta',function($slug){
+    return Nevera\Receta::where('slug',$slug)->first();
 });
 
 
@@ -63,6 +63,11 @@ Route::get('nevera/empty', [
 Route::get('nevera/recetas', [
     'uses' => 'NeveraController@recetas',
     'as' => 'nevera-recetas'
+]);
+
+Route::get('recetas/{ingrediente}', [
+    'uses' => 'ResultadosController@getRecetasIngrediente',
+    'as' => 'resultados-ingrediente'
 ]);
 
 //Route::get('/recetas', 'RecetasController@listado');

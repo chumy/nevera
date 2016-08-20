@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Nevera\Http\Requests;
 use Nevera\Ingrediente;
 use Nevera\Receta;
-use Nevera\RecetaIngrediente;
+use Nevera\ListadoIngredientes;
+
 
 class ResultadosController extends Controller
 {
@@ -29,5 +30,23 @@ class ResultadosController extends Controller
         }*/
 
       return view('resultados', compact('recetas','ingredientes'));
+    }
+
+    /*
+    * Function getRecetasIngrediente
+    *
+    * Calcula las recetas que tienen el ingediente pasado por parametro
+    *
+    * @param Ingrediente
+    * @return vista con Array Recetas
+    */
+    public function getRecetasIngrediente(Ingrediente $ingrediente)
+    {
+
+        $recetas = Receta::join('listado_ingredientes', 'recetas.id','=','listado_ingredientes.receta_id')
+                    ->where('listado_ingredientes.ingrediente_id', '=', $ingrediente->id)
+                    ->get();
+
+        return view('recetas.listado', compact('recetas'));
     }
 }
