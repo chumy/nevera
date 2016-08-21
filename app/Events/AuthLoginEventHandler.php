@@ -59,16 +59,54 @@ class AuthLoginEventHandler extends Event
      */
     protected function saveNevera(User $user)
     {
+        //Actualizacion de nevera
         if (\Session::has('nevera') && count(\Session::get('nevera'))>0)
         {
             $nevera = \Session::get('nevera');
-            foreach ($nevera as $ingrediente) {
-                $temp_nevera = new Nevera;
-                $temp_nevera->user_id = $user->id;
-                $temp_nevera->ingrediente_id = $ingrediente->id;
-                //dd($temp_nevera);
-                $temp_nevera->save();
+
+            // Recuperamos la nevera de la BD
+            $nevera_db = Nevera::where('user_id', '=', $user->id)->get();
+
+            foreach ($nevera_db as $articulos_db) {
+                $ingrediente = Ingrediente::find($articulos_db->ingrediente_id);
+                $nevera[$ingrediente->slug] = $ingrediente;
+                $lista_db[] = $articulos_db->ingrediente_id;
             }
+
+            //dd($nevera_db);
+            //Comparamos la nevera de la BD
+            foreach ($nevera as $articulos) {
+                if (! in_array($articulos->id, $lista_db))
+                {
+                    $temp_nevera = new Nevera;
+                    $temp_nevera->user_id = $user->id;
+                    $temp_nevera->ingrediente_id = $articulos->id;
+                    $temp_nevera->save();
+                }
+            }
+
+            \Session::put('nevera', $nevera);
+            $total_recetas= count(\App::call('Nevera\Http\Controllers\NeveraController@totalRecetas'));
+            \Session::put('total_recetas',$total_recetas);
+        }
+        else //Sin Session previa
+        {
+            $nevera_db = Nevera::where('user_id', '=', $user->id)->get();
+
+            
+            if (count($nevera_db) > 0)
+            {
+
+                foreach ($nevera_db as $articulos_db) {
+                    $ingrediente = Ingrediente::find($articulos_db->ingrediente_id);
+                    $nevera[$ingrediente->slug] = $ingrediente;
+
+                }
+                \Session::put('nevera', $nevera);
+                $total_recetas= count(\App::call('Nevera\Http\Controllers\NeveraController@totalRecetas'));
+                \Session::put('total_recetas',$total_recetas);
+            }
+
         }
     }
 
