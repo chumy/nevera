@@ -8,8 +8,9 @@ use Nevera\Http\Requests;
 use Nevera\Ingrediente;
 use Nevera\Receta;
 use Nevera\ListadoIngredientes;
+use Nevera\Nevera;
 
-use DB;
+use Auth;
 
 class NeveraController extends Controller
 {
@@ -31,11 +32,23 @@ class NeveraController extends Controller
     public function add(Ingrediente $ingrediente)
     {
         
+
         $nevera = \Session::get('nevera');
-        $nevera[$ingrediente->slug] = $ingrediente;
-        \Session::put('nevera', $nevera);
-        $total_recetas= count($this->totalRecetas());
-        \Session::put('total_recetas',$total_recetas);
+        if (! array_key_exists($ingrediente->slug, $nevera))
+        {
+            $nevera[$ingrediente->slug] = $ingrediente;
+            \Session::put('nevera', $nevera);
+            $total_recetas= count($this->totalRecetas());
+            \Session::put('total_recetas',$total_recetas);
+
+            if (auth::check())
+            {
+                $nevera_db = new Nevera;
+                $nevera_db->user_id = Auth::id();
+                $nevera_db->ingrediente_id = $ingrediente->id;
+                $nevera_db->save();
+            }
+        }
         /*
         if($request->ajax())
         {
@@ -64,10 +77,20 @@ class NeveraController extends Controller
     {
         
         $nevera = \Session::get('nevera');
-        unset($nevera[$ingrediente->slug]);
-        \Session::put('nevera', $nevera);
-        $total_recetas= count($this->totalRecetas());
-        \Session::put('total_recetas',$total_recetas);
+        if (array_key_exists($ingrediente->slug, $nevera))
+        {
+            unset($nevera[$ingrediente->slug]);
+            \Session::put('nevera', $nevera);
+            $total_recetas= count($this->totalRecetas());
+            \Session::put('total_recetas',$total_recetas);
+            if (auth::check())
+            {
+                $nevera_db = Nevera::where('user_id', '=', Auth::id())
+                            ->where('ingrediente_id', '=', $ingrediente->id)
+                            ->delete();
+            }
+        }
+
         return view('welcome');
         //return redirect()->route('nevera-show');
     }
@@ -82,6 +105,11 @@ class NeveraController extends Controller
     {
         \Session::forget('nevera');
         \Session::forget('total_recetas');
+        if (auth::check())
+        {
+            $nevera_db = Nevera::where('user_id', '=', Auth::id())
+                        ->delete();
+        }
         return view('welcome');
     }
 
