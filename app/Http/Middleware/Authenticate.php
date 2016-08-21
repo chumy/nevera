@@ -5,6 +5,8 @@ namespace Nevera\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class Authenticate
 {
     /**
@@ -27,4 +29,6 @@ class Authenticate
 
         return $next($request);
     }
+
+    
 }

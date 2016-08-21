@@ -12,4 +12,9 @@ class Categoria extends Model
   {
     return $this->hasMany(Receta::class);
   }
+
+  public function getNombre()
+  {
+    return $this->nombre;
+  }
 }

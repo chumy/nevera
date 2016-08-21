@@ -12,7 +12,7 @@ class CreacionTablaNevera extends Migration
      */
     public function up()
     {
-        Schema::create('Nevera', function (Blueprint $table) {
+        Schema::create('neveras', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('ingrediente_id');
             $table->unsignedInteger('user_id');

@@ -12,9 +12,15 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [
+    /*protected $listen = [
         'Nevera\Events\SomeEvent' => [
             'Nevera\Listeners\EventListener',
+        ],
+    ];*/
+
+    protected $listen = [
+        'Illuminate\Auth\Events\Login' => [
+            'Nevera\Events\AuthLoginEventHandler',  
         ],
     ];
 

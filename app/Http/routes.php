@@ -91,7 +91,15 @@ Route::get('receta/{receta}', [
     'as' =>  'receta'
 ]);
 
+Route::get('receta/add', [
+    'uses' => 'RecetasController@add',
+    'as' =>  'receta-form'
+]);
 
+Route::post('receta/add', [
+    'uses' => 'RecetasController@add',
+    'as' =>  'receta-add'
+]);
 
 
 /*/ Ajax
