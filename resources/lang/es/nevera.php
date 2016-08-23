@@ -20,7 +20,7 @@ return [
     'menu_register' => 'Registrarse',
     'menu_mis_recetas' => 'Mis Recetas',
     'menu_nueva_receta' => 'Nueva Receta',
-
+    'menu_recetas_favoritas' => 'Recetas Favoritas',
     //Resultados buscador
     
     'buscador_ingredientes' => 'Ingredientes',
@@ -35,4 +35,8 @@ return [
     'nevera_empty' => 'No hay ingredientes',
     'nevera_total' => 'Total Recetas',
     'nevera_ingredientes' => 'Recetas que tienen el ingrediente ',
+
+    //Receta
+
+    'add_receta' => 'Nueva Receta',
 ];

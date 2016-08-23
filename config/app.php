@@ -148,14 +148,17 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
+        /**
          * Application Service Providers...
-         */
+         **/
         Nevera\Providers\AppServiceProvider::class,
         Nevera\Providers\AuthServiceProvider::class,
         Nevera\Providers\EventServiceProvider::class,
         Nevera\Providers\RouteServiceProvider::class,
-
+        /**
+        * Collective
+        **/
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -201,6 +204,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        /**
+        * Collective
+        **/
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

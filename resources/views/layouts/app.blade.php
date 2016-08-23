@@ -66,6 +66,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/receta/list/'.Auth::id() ) }}"><i class="fa fa-btn fa-sign-out"></i>@lang('nevera.menu_mis_recetas')</a></li>
                                 <li><a href="{{ url('/receta/add') }}"><i class="fa fa-btn fa-sign-out"></i>@lang('nevera.menu_nueva_receta')</a></li>
+                                <li><a href="#"><i class="fa fa-btn fa-sign-out"></i>@lang('nevera.menu_recetas_favoritas')</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>@lang('nevera.menu_logout')</a></li>
                             </ul>
                         </li>

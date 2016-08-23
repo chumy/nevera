@@ -20,7 +20,7 @@ class RecetaTableSeeder extends Seeder
             'nombre' => "Pan Campestre",
         ]);*/
 
-      for ($i=1; $i<11; $i++)
+      for ($i=1; $i<6; $i++)
       {
         factory(Receta::class)->create([
           'nombre' => "Receta $i",

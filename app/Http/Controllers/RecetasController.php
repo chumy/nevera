@@ -35,4 +35,10 @@ class RecetasController extends Controller
     return view('recetas/receta', compact('receta','ingredientes'));
   }
 
+  public function create()
+  {
+    $receta = new Receta;
+    return view('recetas.create', compact('receta'));
+  }
+
 }

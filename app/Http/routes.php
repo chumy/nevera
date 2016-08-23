@@ -81,6 +81,16 @@ Route::get('/home', [
     'as' =>  'home'
 ]);
 
+Route::get('receta/add', [
+    'uses' => 'RecetasController@create',
+    'as' =>  'receta-create'
+]);
+
+Route::post('receta/add', [
+    'uses' => 'RecetasController@store',
+    'as' =>  'receta-store'
+]);
+
 Route::get('receta/list/{user}', [
     'uses' => 'RecetasController@list',
     'as' =>  'lista-recetas'
@@ -91,15 +101,7 @@ Route::get('receta/{receta}', [
     'as' =>  'receta'
 ]);
 
-Route::get('receta/add', [
-    'uses' => 'RecetasController@add',
-    'as' =>  'receta-form'
-]);
 
-Route::post('receta/add', [
-    'uses' => 'RecetasController@add',
-    'as' =>  'receta-add'
-]);
 
 
 /*/ Ajax
