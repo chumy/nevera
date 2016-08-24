@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Nevera\Http\Requests;
 use Nevera\Receta;
 use Nevera\User;
+use Nevera\Categoria;
+use Nevera\Http\Requests\CreateRecetaFormRequest;
+use Auth;
 
 class RecetasController extends Controller
 {
@@ -38,7 +41,30 @@ class RecetasController extends Controller
   public function create()
   {
     $receta = new Receta;
-    return view('recetas.create', compact('receta'));
+    $categorias = Categoria::All();
+
+    $categorias = Categoria::lists('nombre','id');
+    return view('recetas.create', compact('receta','categorias'));
+  }
+
+  public function store(CreateRecetaFormRequest $request)
+  {
+    $receta = new Receta();
+    $receta->nombre = $request->get('nombre');
+    $receta->descripcion = $request->get('descripcion');
+    $receta->duracion = $request->get('duracion');
+    $receta->dificultad = $request->get('dificultad');
+    $receta->personas = $request->get('personas');
+    $receta->fuente = $request->get('fuente');
+    $receta->user_id = Auth::id();
+    $receta->categoria_id = $request->get('categorias');
+
+    $receta->save();
+
+    return view('recetas.receta', compact('receta'));
+    //return \Redirect::route('receta.listado')
+    //    ->with('message', 'Your recipe has been created!');
+    
   }
 
 }

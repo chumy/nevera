@@ -10,6 +10,16 @@
             <div class="panel-heading">@lang('nevera.add_receta')</div>
                 <div class="panel-body">
                     {!! Form::model($receta, ['action' => 'RecetasController@store']) !!}
+                    @if (count($errors) > 0)
+<div class="alert alert-danger">
+    There were some problems adding the recipe.<br />
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error}}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
                         <div class="form-group">
                           {!! Form::label('nombre', 'Nombre') !!}
                           {!! Form::text('nombre', '', ['class' => 'form-control']) !!}
@@ -35,6 +45,11 @@
                         <div class="form-group">
                           {!! Form::label('fuente', 'Fuente') !!}
                           {!! Form::text('fuente', 'http://', ['class' => 'form-control']) !!}
+                        </div>
+
+                        <div class="form-group">
+                        {!! Form::label('categorias', 'Categorias') !!}
+                        {!! Form::select('categorias', $categorias, null, ['class' => 'form-control']) !!}
                         </div>
 
                         <button class="btn btn-success" type="submit">Añadir Receta</button>
