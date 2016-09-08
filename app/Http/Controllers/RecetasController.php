@@ -8,6 +8,7 @@ use Nevera\Http\Requests;
 use Nevera\Receta;
 use Nevera\User;
 use Nevera\Categoria;
+use Nevera\Medida;
 use Nevera\Http\Requests\CreateRecetaFormRequest;
 use Auth;
 
@@ -24,7 +25,7 @@ class RecetasController extends Controller
     return view('recetas/listado', compact('recetas'));
   }
 
-  public function list(User $usuario)
+  public function listadoUser(User $usuario)
   {
     $recetas = $usuario->recetas()->get();
 
@@ -41,16 +42,23 @@ class RecetasController extends Controller
   public function create()
   {
     $receta = new Receta;
-    $categorias = Categoria::All();
 
+    $categorias = Categoria::All();
     $categorias = Categoria::lists('nombre','id');
-    return view('recetas.create', compact('receta','categorias'));
+
+    $medidas = Medida::All();
+    $medidas = Medida::lists('nombre','id');
+    
+
+
+    return view('recetas.create', compact('receta','categorias','medidas'));
   }
 
   public function store(CreateRecetaFormRequest $request)
   {
     $receta = new Receta();
     $receta->nombre = $request->get('nombre');
+    $receta->slug = str_slug($request->get('nombre'));
     $receta->descripcion = $request->get('descripcion');
     $receta->duracion = $request->get('duracion');
     $receta->dificultad = $request->get('dificultad');
@@ -67,4 +75,6 @@ class RecetasController extends Controller
     
   }
 
+
+  
 }

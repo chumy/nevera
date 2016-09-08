@@ -29,6 +29,6 @@ class CreacionTablaNevera extends Migration
      */
     public function down()
     {
-        Schema::drop('Nevera');
+        Schema::drop('neveras');
     }
 }

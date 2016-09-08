@@ -70,6 +70,11 @@ Route::get('recetas/{ingrediente}', [
     'as' => 'resultados-ingrediente'
 ]);
 
+Route::get('search/autoCompleteIngrediente', [
+    'uses' => 'IngredienteController@autocomplete',
+    'as' => 'auto-ingrediente'
+]);
+
 //Route::get('/recetas', 'RecetasController@listado');
 
 //Route::post('/resultados', 'ResultadosController@getResultados');
@@ -92,7 +97,7 @@ Route::post('receta/add', [
 ]);
 
 Route::get('receta/list/{user}', [
-    'uses' => 'RecetasController@list',
+    'uses' => 'RecetasController@listadoUser',
     'as' =>  'lista-recetas'
 ]);
 
